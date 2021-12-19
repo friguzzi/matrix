@@ -29,6 +29,8 @@ that's the reson for the focus on positive semi-definite matrices
     cholesky_decomposition/2,
     matrix_inversion/2,
     matrix_inv_triang/2,
+    matrix_identity/2,
+    matrix_diagonal/2,
     determinant/2,
     list0/2
     ]).
@@ -64,6 +66,50 @@ determinant(A,Det):-
  
 prod(A,P0,P):- 
   P is P0*A.
+
+
+%%  matrix_identity(+N,-M) is det.
+% generates identity matrix of size NxN
+%
+matrix_identity(N,M):-
+  numlist(1,N,L),
+  maplist(row(N,L),L,M).
+
+
+row(N,L,I,Row):-
+  length(Row,N),
+  maplist(elem(I),L,Row).
+
+elem(I,IP,El):-
+  (I==IP->
+    El=1
+  ;
+    El=0
+  ).
+
+
+%%  matrix_diagonal(+Vect,-M) is det.
+% generates diagonal matrix from vector Vect
+% M=diag(Vect)
+%
+matrix_diagonal(Vect,M):-
+  length(Vect,N),
+  numlist(1,N,L),
+  maplist(row_diag(N,L),L,Vect,M).
+
+
+row_diag(N,L,I,El,Row):-
+  length(Row,N),
+  maplist(elem_diag(I,El),L,Row).
+
+elem_diag(I,Comp,IP,El):-
+  (I==IP->
+    El=Comp
+  ;
+    El=0
+  ).
+
+
 
 %%  matrix_inversion(+M,-IM) is det.
 % inversion of a positive semi-definite matrix. Uses the Cholenski 
@@ -195,6 +241,7 @@ diff(A,B,C):-
 %% matrix_sum(+A,+B,-C) is det
 % ==
 % matrix_sum([[1,2],[3,4],[5,6]],[[1,2],[3,4],[5,6]],M).
+% M = [[2, 4], [6, 8], [10, 12]].
 % ==
 matrix_sum(X,Y,S):-
   maplist(maplist(sum),X,Y,S).
