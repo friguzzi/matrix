@@ -9,6 +9,8 @@ Impemented operations:
  - determinant for positive semi-definite matrices (using Cholesky decomposition)
  - inversion for positive semi-definite matrices (using Cholesky decomposition)
  - inversion for lower triangular matrices
+ - identity matrix
+ - diagonal matrix
 
 The library was developed for dealing with multivariate Gaussian distributions,
 that's the reson for the focus on positive semi-definite matrices
