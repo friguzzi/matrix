@@ -1,7 +1,7 @@
 # matrix
 
 SWI-Prolog pack for matrix operations. 
-Impemented operations:
+Implemented operations:
  - sum
  - difference
  - multiplication
@@ -23,3 +23,6 @@ Example of use
     ?- determinant([[2,-1,0],[-1,2,-1],[0,-1,2]],D).
     D = 3.999999999999999.
 
+## Documentation
+
+https://friguzzi.github.io/matrix

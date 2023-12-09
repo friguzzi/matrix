@@ -1,3 +1,18 @@
+:- module(matrix,
+    [matrix_multiply/3,
+    matrix_sum/3,
+    matrix_diff/3,
+    matrix_mult_scal/3,
+    matrix_div_scal/3,
+    dot_product/3,
+    cholesky_decomposition/2,
+    matrix_inversion/2,
+    matrix_inv_triang/2,
+    matrix_identity/2,
+    matrix_diagonal/2,
+    determinant/2,
+    list0/2
+    ]).
 /** <module> matrix
 
 This module performs matrix operations.
@@ -21,21 +36,6 @@ that's the reson for the focus on positive semi-definite matrices
 */
 
 
-:- module(matrix,
-    [matrix_multiply/3,
-    matrix_sum/3,
-    matrix_diff/3,
-    matrix_mult_scal/3,
-    matrix_div_scal/3,
-    dot_product/3,
-    cholesky_decomposition/2,
-    matrix_inversion/2,
-    matrix_inv_triang/2,
-    matrix_identity/2,
-    matrix_diagonal/2,
-    determinant/2,
-    list0/2
-    ]).
 :- use_module(library(clpfd), [transpose/2]).
 %%  matrix_div_scal(+A,+V,-B) is det.
 % divide matrix A by scalar V
