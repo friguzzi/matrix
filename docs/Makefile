@@ -4,11 +4,11 @@
 # Makefile
 #
 
-default: genpldoc
+default: pldoc
 
-genpldoc:
+pldoc:
 	swipl gen_pldoc.pl
 	mv matrix.html index.html
 
-.PHONY: default genpldoc
+.PHONY: default pldoc
 
